@@ -9,8 +9,10 @@ import {
   Alert,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-
+import { useNavigation } from "@react-navigation/native";
 const Login = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -25,7 +27,10 @@ const Login = () => {
       />
       <TextInput style={styles.input} placeholder="Password" secureTextEntry />
       <TextInput placeholder="Role" />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("AdminForm")}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>Log In / Sign Up</Text>
       </TouchableOpacity>
     </View>
