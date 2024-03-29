@@ -9,14 +9,17 @@ import {
   FlatList,
   Dimensions,
   nativeEvent,
+  Pressable,
 } from "react-native";
 import { StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const Carousel = () => {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
   const [activeIndex, setActiveIndex] = useState(0);
   const flatlistRef = useRef();
+  const navigation = useNavigation();
   const carouselData = [
     {
       id: "01",
@@ -105,11 +108,16 @@ const Carousel = () => {
       <View style={styles.infoContainer}>
         <Text style={styles.roomText}>Phòng KARAOKE nhỏ</Text>
         <View style={styles.dotIndicator}>{renderDotIndicator()}</View>
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Register")}
+          style={styles.buttonContainer}
+        >
           <Text style={styles.createButton}>Create Account</Text>
         </TouchableOpacity>
 
-        <Text style={styles.alreadyText}>Already have an account</Text>
+        <Pressable onPress={() => navigation.navigate("Login")}>
+          <Text style={styles.alreadyText}>Already have an account</Text>
+        </Pressable>
       </View>
     </View>
   );

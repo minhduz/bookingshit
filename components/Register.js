@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 
-const Login = () => {
+const Register = () => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -32,7 +32,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
 
 const styles = StyleSheet.create({
   container: {
